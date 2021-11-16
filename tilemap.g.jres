@@ -76,6 +76,12 @@
         "tilemapTile": true,
         "displayName": "myTile10"
     },
+    "tile13": {
+        "data": "hwQQABAAAADMzMzMzMzMrLvdvN3d293Nu9283d3b3c273by7u7y7q7vd/P//////u93MzMzMzMy73fz//////7vdzMzM////u938///MzMy73fz//////7vdzMzMzMzMu938//////+73by7u7y7q7vdvN3d293Nu9283d3b3c3MzMzMzMzMrA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile11"
+    },
     "level1": {
         "id": "level1",
         "mimeType": "application/mkcd-tilemap",
@@ -261,6 +267,29 @@
             "myTiles.tile7"
         ],
         "displayName": "level7"
+    },
+    "level10": {
+        "id": "level10",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAwYzAwMGMwMDAzMDEwOTAxMDEwMjAzMDEwMTAxMDEwMjA0MGUwZTBlMGUwYTBiMGUwZTBlMGUwNTA0MGUwMzAyMGUwZTBlMGUwMzAyMGUwNTA0MGUwNjA3MGUwMzAyMGUwNjA3MGUwNTA0MGUwZTBlMGUwNDA1MGUwZTBlMGUwNTA0MGUwMzAyMGUwNDA1MGUwMzAyMGUwNTA0MGUwNjA3MGUwNDA1MGUwNjA3MGUwNTA0MGUwZTBlMGUwNDA1MGUwZTBlMGUwNTA0MGUwMzAyMGUwNjA3MGUwMzAyMGUwNTA0MGUwNjA3MGUwZTBlMGUwNjA3MGUwNTA0MGUwZTBlMGUwZDBjMGUwZTBlMGUwNTA2MDgwODA4MDgwNzA2MDgwODA4MDgwNzIyMjAyMjIyMjIyMjAyMDAyMDAyMDAyMDAyMjIwMDAwMjIyMDAyMjIyMDAyMjIyMDAyMDAyMDAyMDAyMDAyMjIyMDAyMjIyMDAyMjIyMDAyMjIyMDAyMDAyMDAyMDAyMDAyMjIyMDAyMjIyMDAyMjIwMDAwMjIyMDAyMDAyMDAyMDAyMDIyMjIyMjIyMjIyMg==",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.purpleOuterNorth0",
+            "sprites.dungeon.purpleOuterNorthEast",
+            "sprites.dungeon.purpleOuterNorthWest",
+            "sprites.dungeon.purpleOuterWest0",
+            "sprites.dungeon.purpleOuterEast1",
+            "sprites.dungeon.purpleOuterSouthEast",
+            "sprites.dungeon.purpleOuterSouthWest",
+            "sprites.dungeon.purpleOuterSouth1",
+            "myTiles.tile13",
+            "sprites.dungeon.purpleInnerSouthWest",
+            "sprites.dungeon.purpleInnerSouthEast",
+            "sprites.dungeon.purpleInnerNorthEast",
+            "sprites.dungeon.purpleInnerNorthWest",
+            "sprites.dungeon.floorDark0"
+        ],
+        "displayName": "level10"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
