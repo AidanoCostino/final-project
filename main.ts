@@ -19,25 +19,14 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonPink, function (spr
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorLockedNorth, function (sprite, location) {
     sprite.sayText("Do I need a key?", 2000, true)
-    top_key = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . f f f f f f . . . . . . 
-        . . . f 5 5 5 5 d d f . . . . . 
-        . . f 5 5 4 4 4 4 5 d f . . . . 
-        . . f 5 5 . . . . 5 4 f . . . . 
-        . . . f 4 4 4 5 5 4 f . . . . . 
-        . . . . f f 5 5 f f . . . . . . 
-        . . . . . f 5 d f . . . . . . . 
-        . . . . . f 5 d f f . . . . . . 
-        . . . . . f 5 5 d d f . . . . . 
-        . . . . . f 5 5 4 f . . . . . . 
-        . . . . . f 5 5 5 d f . . . . . 
-        . . . . . f 5 4 f f . . . . . . 
-        . . . . . . f f . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Key)
-    tiles.placeOnTile(top_key, tiles.getTileLocation(1, 1))
+    top_key_v += 1
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenSouth, function (sprite, location) {
+    tiles.setTilemap(tilemap`level10`)
+    tiles.placeOnTile(sprite, tiles.getTileLocation(2, 1))
+    statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+    statusbar.attachToSprite(playerRed)
+    game.splash("Don't Let your health fall below 0!")
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.leaver2, function (sprite, otherSprite) {
     tiles.setTileAt(tiles.getTileLocation(9, 6), assets.tile`myTile8`)
@@ -45,10 +34,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.leaver2, function (sprite, other
     tiles.setWallAt(tiles.getTileLocation(4, 2), false)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    tiles.placeOnTile(playerRed, tiles.getTileLocation(31, 9))
+    tiles.placeOnTile(playerRed, tiles.getTileLocation(30, 30))
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    tiles.placeOnTile(playerRed, tiles.getTileLocation(26, 18))
+    tiles.placeOnTile(playerRed, tiles.getTileLocation(4, 31))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     playerRed.setVelocity(0, 0)
@@ -66,6 +55,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenEast, function (s
     } else {
         tiles.setTilemap(tilemap`level7`)
     }
+    top_key.destroy()
     tiles.placeOnTile(sprite, tiles.getTileLocation(1, 4))
     yes = sprites.create(img`
         d 1 1 1 1 1 1 b d 1 1 1 1 1 1 d 
@@ -175,25 +165,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sp
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorLockedSouth, function (sprite, location) {
     sprite.sayText("Do I need a key?", 2000, true)
-    bottom_key = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . f f f f f f . . . . . . 
-        . . . f 5 5 5 5 d d f . . . . . 
-        . . f 5 5 4 4 4 4 5 d f . . . . 
-        . . f 5 5 . . . . 5 4 f . . . . 
-        . . . f 4 4 4 5 5 4 f . . . . . 
-        . . . . f f 5 5 f f . . . . . . 
-        . . . . . f 5 d f . . . . . . . 
-        . . . . . f 5 d f f . . . . . . 
-        . . . . . f 5 5 d d f . . . . . 
-        . . . . . f 5 5 4 f . . . . . . 
-        . . . . . f 5 5 5 d f . . . . . 
-        . . . . . f 5 4 f f . . . . . . 
-        . . . . . . f f . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Key3)
-    tiles.placeOnTile(bottom_key, tiles.getTileLocation(30, 30))
+    bottom_key_v += 1
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
     playerRed.setVelocity(0, 0)
@@ -211,25 +183,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Key2, function (sprite, otherSpr
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorLockedEast, function (sprite, location) {
     sprite.sayText("Do I need a key?", 2000, true)
-    right_key = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . f f f f f f . . . . . . 
-        . . . f 5 5 5 5 d d f . . . . . 
-        . . f 5 5 4 4 4 4 5 d f . . . . 
-        . . f 5 5 . . . . 5 4 f . . . . 
-        . . . f 4 4 4 5 5 4 f . . . . . 
-        . . . . f f 5 5 f f . . . . . . 
-        . . . . . f 5 d f . . . . . . . 
-        . . . . . f 5 d f f . . . . . . 
-        . . . . . f 5 5 d d f . . . . . 
-        . . . . . f 5 5 4 f . . . . . . 
-        . . . . . f 5 5 5 d f . . . . . 
-        . . . . . f 5 4 f f . . . . . . 
-        . . . . . . f f . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Key2)
-    tiles.placeOnTile(right_key, tiles.getTileLocation(26, 18))
+    right_key_v += 1
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonOrange, function (sprite, location) {
     tiles.setTileAt(tiles.getTileLocation(1, 1), sprites.dungeon.buttonOrangeDepressed)
@@ -256,14 +210,16 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonTeal, function (spr
     tiles.setTileAt(tiles.getTileLocation(8, 8), sprites.dungeon.floorLight2)
     tiles.setTileAt(tiles.getTileLocation(8, 6), sprites.dungeon.floorLight2)
 })
-let right_key: Sprite = null
-let bottom_key: Sprite = null
+let right_key_v = 0
+let bottom_key_v = 0
 let side_door = 0
 let yes4: Sprite = null
 let yes3: Sprite = null
 let yes2: Sprite = null
 let yes: Sprite = null
 let top_key: Sprite = null
+let statusbar: StatusBarSprite = null
+let top_key_v = 0
 let room2compleate = 0
 let gate_key = 0
 let playerRed: Sprite = null
@@ -292,6 +248,29 @@ gate_key = 0
 let right_door = 0
 let map_number = 0
 room2compleate = 0
+forever(function () {
+    if (tiles.tileIs(tiles.getTileLocation(0, 15), sprites.dungeon.stairEast) && top_key_v > 0) {
+        top_key = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . f f f f f f . . . . . . 
+            . . . f 5 5 5 5 d d f . . . . . 
+            . . f 5 5 4 4 4 4 5 d f . . . . 
+            . . f 5 5 . . . . 5 4 f . . . . 
+            . . . f 4 4 4 5 5 4 f . . . . . 
+            . . . . f f 5 5 f f . . . . . . 
+            . . . . . f 5 d f . . . . . . . 
+            . . . . . f 5 d f f . . . . . . 
+            . . . . . f 5 5 d d f . . . . . 
+            . . . . . f 5 5 4 f . . . . . . 
+            . . . . . f 5 5 5 d f . . . . . 
+            . . . . . f 5 4 f f . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Key)
+        tiles.placeOnTile(top_key, tiles.getTileLocation(1, 1))
+    }
+})
 forever(function () {
     if (side_door >= 1 && map_number >= 1) {
         tiles.setTileAt(tiles.getTileLocation(17, 0), sprites.dungeon.doorOpenNorth)
