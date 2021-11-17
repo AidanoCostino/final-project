@@ -39,16 +39,20 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorLockedNorth, function
         `, SpriteKind.Key)
     tiles.placeOnTile(top_key, tiles.getTileLocation(1, 1))
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenSouth, function (sprite, location) {
+    tiles.setTilemap(tilemap`level10`)
+    tiles.placeOnTile(sprite, tiles.getTileLocation(2, 1))
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.leaver2, function (sprite, otherSprite) {
     tiles.setTileAt(tiles.getTileLocation(9, 6), assets.tile`myTile8`)
     tiles.setTileAt(tiles.getTileLocation(4, 2), sprites.dungeon.floorLight0)
     tiles.setWallAt(tiles.getTileLocation(4, 2), false)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    tiles.placeOnTile(playerRed, tiles.getTileLocation(31, 9))
+    tiles.placeOnTile(playerRed, tiles.getTileLocation(30, 30))
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    tiles.placeOnTile(playerRed, tiles.getTileLocation(26, 18))
+    tiles.placeOnTile(playerRed, tiles.getTileLocation(4, 30))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     playerRed.setVelocity(0, 0)
