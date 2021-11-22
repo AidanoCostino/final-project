@@ -1,8 +1,13 @@
 {
-    "name": "Final Project",
+    "name": "Final Project REAL",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "Sprite Grid": "github:microsoft/arcade-grid#v1.3.0",
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1"
     },
     "files": [
         "main.blocks",
@@ -16,11 +21,11 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.6.24",
+        "target": "1.7.16",
         "targetId": "arcade"
     },
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
